@@ -67,6 +67,7 @@ RUN \
   python3-wheel \
   ssh \
   wget \
+  less \
   xz-utils \
   && pip3 install \
   -r https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/v${ZEPHYR_VERSION}/scripts/requirements-build-test.txt \
