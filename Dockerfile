@@ -17,6 +17,7 @@ RUN \
   git \
   gperf \
   make \
+  protobuf-compiler \
   ninja-build \
   python3 \
   python3-dev \
