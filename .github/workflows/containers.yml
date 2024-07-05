@@ -404,14 +404,14 @@ jobs:
         run: cd docs && timeout -s SIGINT 60 npm run start &
       - name: Test docs wget (webpack-dev-server)
         id: wget-webpack-dev-server
-        run: wget --waitretry=60 http://localhost:3000
+        run: wget --retry-connrefused --waitretry=60 http://localhost:3000
       - run: sleep 60
       - name: Test docs build (webpack)
         run: cd docs && npm run build
       - name: Test docs serve (webpack)
         run: cd docs && timeout -s SIGINT 30 npm run serve &
       - name: Test docs wget (webpack)
-        run: wget --waitretry=30 http://localhost:3000
+        run: wget --retry-connrefused --waitretry=30 http://localhost:3000
       - name: Test less
         run: less --version
       - name: Test PAGER
