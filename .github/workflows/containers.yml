@@ -418,6 +418,8 @@ jobs:
         run: pager --version && [[ $PAGER = "less" ]] && true || false
       - name: Test ssh
         run: ssh -V
+      - name: Test protoc
+        run: protoc --version
       - name: Test gdb
         run: gdb --version
       - name: Test arm-zephyr-eabi-gdb
