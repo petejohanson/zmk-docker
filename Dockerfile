@@ -13,6 +13,7 @@ RUN \
   ccache \
   file \
   gcc \
+  g++ \
   "${gcc_multilib}" \
   git \
   gperf \
@@ -27,8 +28,9 @@ RUN \
   ssh \
   && pip3 install \
   -r https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/v${ZEPHYR_VERSION}/scripts/requirements-base.txt \
-  && pip3 install cmake \
+  && pip3 install cmake protobuf grpcio-tools \
   && apt-get remove -y --purge \
+  g++ \
   python3-dev \
   python3-pip \
   python3-setuptools \
