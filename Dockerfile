@@ -1,4 +1,4 @@
-FROM ubuntu:jammy-20240530 AS common
+FROM ubuntu:noble-20240605 AS common
 
 CMD ["/bin/bash"]
 
@@ -26,9 +26,9 @@ RUN \
   python3-setuptools \
   python3-wheel \
   ssh \
-  && pip3 install \
+  && PIP_BREAK_SYSTEM_PACKAGES=1 pip3 install \
   -r https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/v${ZEPHYR_VERSION}/scripts/requirements-base.txt \
-  && pip3 install cmake protobuf grpcio-tools \
+  && PIP_BREAK_SYSTEM_PACKAGES=1 pip3 install cmake protobuf grpcio-tools \
   && apt-get remove -y --purge \
   g++ \
   python3-dev \
@@ -73,7 +73,7 @@ RUN \
   tio \
   wget \
   xz-utils \
-  && pip3 install \
+  && PIP_BREAK_SYSTEM_PACKAGES=1 pip3 install \
   -r https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/v${ZEPHYR_VERSION}/scripts/requirements-build-test.txt \
   -r https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/v${ZEPHYR_VERSION}/scripts/requirements-run-test.txt \
   && apt-get clean \
